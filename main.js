@@ -1,16 +1,17 @@
 // Initialize Firebase
 var config = {
-    apiKey: "######",
+    apiKey: "AIzaSyD2z5Gq-aslu5cyHF-V4x8cGDxwhFQ4u3Y",
     authDomain: "openacademy-contact-form.firebaseapp.com",
     databaseURL: "https://openacademy-contact-form.firebaseio.com",
     projectId: "openacademy-contact-form",
     storageBucket: "openacademy-contact-form.appspot.com",
-    messagingSenderId: "####"
+    messagingSenderId: "244330105209"
   };
   firebase.initializeApp(config);
 
 // reference messages collection
 var messagesRef = firebase.database().ref('messages');
+
 
 
 /* Event Listener */
@@ -26,11 +27,14 @@ function submitForm(e){
     var email = getInputVal('email');
     var phone = getInputVal('phone');
     var message = getInputVal('message');
+
     // save message
     saveMessage(name, company, email, phone, message);
 
     // show alert
     document.querySelector('.alert').style.display = 'block';
+    var message = document.querySelector("#greeting");
+    message.innerHTML = "Thank You "+ name +". Your message has been sent."
 
     // Hide alert after 3 seconds
     setTimeout(function(){
